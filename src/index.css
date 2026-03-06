@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Quicksand", sans-serif;
+  --font-accent: "Pacifico", cursive;
+
+  --color-primary: #ff6b81;
+  --color-secondary: #ffe4e1;
+  --color-tertiary: #ffb6c1;
+  --color-background-light: #fff5f5;
+  --color-card-light: #ffffff;
+  --color-text-light: #4a4a4a;
+  
+  --radius-kawaii: 1.5rem;
+  --shadow-cute: 0 10px 25px -5px rgba(255, 107, 129, 0.2), 0 8px 10px -6px rgba(255, 107, 129, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-background-light text-text-light transition-colors duration-300;
+    background-image: radial-gradient(circle at center, rgba(255,182,193,0.3) 0%, transparent 100%);
+  }
+}
+
+@layer components {
+  .bg-pattern-light {
+    background-image: radial-gradient(#FFB6C1 2px, transparent 2px);
+    background-size: 30px 30px;
+  }
+
+  .kawaii-checkbox {
+    @apply appearance-none bg-transparent m-0 w-6 h-6 border-2 border-primary rounded-full grid place-content-center cursor-pointer transition-all duration-200;
+  }
+
+  .kawaii-checkbox::before {
+    content: "";
+    @apply w-3 h-3 rounded-full scale-0 transition-transform duration-120 bg-primary;
+  }
+
+  .kawaii-checkbox:checked::before {
+    @apply scale-100;
+  }
+}
